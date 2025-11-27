@@ -1,28 +1,28 @@
+import { Result } from '../../core/result/result';
+import { DomainError } from '../../core/errors/domain-error';
 
 export abstract class AuthRepository {
 
-    abstract login(email: string, password: string): Promise<any>;
+    abstract login(email: string, password: string): Promise<Result<any, DomainError>>;
 
-    abstract loginWithGoogle(): Promise<any>;
+    abstract loginWithGoogle(): Promise<Result<any, DomainError>>;
 
-    abstract verifyToken(token: string): Promise<any>;
+    abstract verifyToken(token: string): Promise<Result<any, DomainError>>;
 
-    abstract refreshToken(refreshToken: string): Promise<any>;
+    abstract refreshToken(refreshToken: string): Promise<Result<any, DomainError>>;
 
-    abstract logout(): Promise<any>;
+    abstract logout(): Promise<Result<void, DomainError>>;
 
-    abstract changePassword(oldPassword: string, newPassword: string, confirmPassword: string): Promise<any>;
+    abstract changePassword(oldPassword: string, newPassword: string, confirmPassword: string): Promise<Result<void, DomainError>>;
 
-    abstract sendOTP(email: string): Promise<any>;
+    abstract sendOTP(email: string): Promise<Result<void, DomainError>>;
 
-    abstract verifyOTP(email: string, otp: string): Promise<any>;
+    abstract verifyOTP(email: string, otp: string): Promise<Result<any, DomainError>>;
 
-    abstract resetPassword(email: string): Promise<any>;
+    abstract resetPassword(email: string): Promise<Result<void, DomainError>>;
 
-    abstract confirmResetPassword(token: string, password: string): Promise<any>;
+    abstract confirmResetPassword(token: string, password: string): Promise<Result<void, DomainError>>;
 
-    abstract validateResetPasswordToken(token: string): Promise<any>;
-
-
+    abstract validateResetPasswordToken(token: string): Promise<Result<any, DomainError>>;
 
 }

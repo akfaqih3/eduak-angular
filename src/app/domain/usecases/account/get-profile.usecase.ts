@@ -1,6 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { AccountRepository } from '../../repositories/account.repository';
 import { AccountEntity } from '../../entities/account.entity';
+import { Result } from '../../../core/result/result';
+import { DomainError } from '../../../core/errors/domain-error';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,7 @@ import { AccountEntity } from '../../entities/account.entity';
 export class GetProfileUseCase {
   private repository = inject(AccountRepository);
 
-  execute(): Promise<AccountEntity> {
+  execute(): Promise<Result<AccountEntity, DomainError>> {
     return this.repository.getProfile();
   }
 }
