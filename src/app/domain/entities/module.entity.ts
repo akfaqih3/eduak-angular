@@ -1,11 +1,11 @@
 /**
- * Course
+ * Module
  */
-export interface CourseEntity {
+export interface ModuleEntity {
+    description?: string;
     id: number;
-    overview: string;
+    order?: number;
     photo?: string;
-    subject: string;
     title: string;
     [property: string]: any;
 }
