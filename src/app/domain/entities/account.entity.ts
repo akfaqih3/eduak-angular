@@ -1,7 +1,7 @@
 /**
- * User
+ * Account
  */
-export interface UserEntity {
+export interface AccountEntity {
     bio: string;
     email: string;
     name?: null | string;
