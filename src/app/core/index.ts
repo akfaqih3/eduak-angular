@@ -14,4 +14,6 @@ export * from './utils';
 export * from './contracts/mapper.contract';
 export * from './contracts/usecase.contract';
 
+// API Module
+export * from './api';
 
