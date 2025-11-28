@@ -1,21 +1,21 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CourseDataSource } from '../course.datasource';
 import { CourseModel } from '../../models/course.model';
-import { API_ENDPOINTS } from '../../../core/constants';
+import { BaseApiService } from '../../../core/api/services/base-api.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CourseRemoteDataSource implements CourseDataSource {
-  private http = inject(HttpClient);
+export class CourseRemoteDataSource extends BaseApiService<CourseModel> implements CourseDataSource {
+  protected resourcePath = 'courses';
 
   getCourses(): Observable<CourseModel[]> {
-    return this.http.get<CourseModel[]>(API_ENDPOINTS.COURSE.BASE);
+    return this.getAll().pipe(map((response) => response.data));
   }
 
   getCourse(id: number): Observable<CourseModel> {
-    return this.http.get<CourseModel>(API_ENDPOINTS.COURSE.BY_ID(id));
+    return this.getById(id).pipe(map((response) => response.data));
   }
 }
