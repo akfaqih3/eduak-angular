@@ -1,51 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { TeacherDataSource } from '../teacher.datasource';
 import { CourseModel } from '../../models/course.model';
+import { BaseApiService } from '../../../core/api/services/base-api.service';
+import { ApiResponse, ListResponse, SingleResponse } from '../../../core/api/models';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TeacherRemoteDataSource extends TeacherDataSource {
-
-    // TODO: Inject HttpClient here when available
-    // constructor(private http: HttpClient) { super(); }
+export class TeacherRemoteDataSource extends BaseApiService<any> implements TeacherDataSource {
+    protected resourcePath = 'teacher';
 
     getCourses(): Observable<CourseModel[]> {
-        // Mock implementation
-        return of([
-            {
-                id: 1,
-                title: 'Introduction to Angular',
-                overview: 'Learn the basics of Angular',
-                photo: 'https://angular.io/assets/images/logos/angular/angular.png',
-                subject: 'Angular'
-            }
-        ]);
+        return this.get<ListResponse<CourseModel>>('courses').pipe(map(response => response.data));
     }
 
     getCourse(id: number): Observable<CourseModel> {
-        return of({
-            id: id,
-            title: 'Introduction to Angular',
-            overview: 'Learn the basics of Angular',
-            photo: 'https://angular.io/assets/images/logos/angular/angular.png',
-            subject: 'Angular'
-        });
+        return this.get<SingleResponse<CourseModel>>(`courses/${id}`).pipe(map(response => response.data));
     }
 
     createCourse(course: CourseModel): Observable<CourseModel> {
-        return of({
-            ...course,
-            id: Math.floor(Math.random() * 1000)
-        });
+        return this.post<SingleResponse<CourseModel>>('courses', course).pipe(map(response => response.data));
     }
 
     updateCourse(course: CourseModel): Observable<CourseModel> {
-        return of(course);
+        return this.put<SingleResponse<CourseModel>>(`courses/${course.id}`, course).pipe(map(response => response.data));
     }
 
     deleteCourse(id: number): Observable<void> {
-        return of(void 0);
+        return this.deleteRequest<ApiResponse<void>>(`courses/${id}`).pipe(map(() => void 0));
     }
 }
