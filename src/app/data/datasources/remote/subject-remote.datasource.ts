@@ -9,7 +9,7 @@ import { BaseApiService } from '../../../core/api/services/base-api.service';
     providedIn: 'root'
 })
 export class SubjectRemoteDataSource extends BaseApiService<SubjectModel> implements SubjectDataSource {
-    protected resourcePath = 'subjects';
+    protected resourcePath = 'courses/subjects';
 
     getSubjects(): Observable<SubjectModel[]> {
         return this.getAll().pipe(map(response => response.data));
