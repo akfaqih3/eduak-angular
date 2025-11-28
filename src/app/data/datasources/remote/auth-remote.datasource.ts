@@ -1,57 +1,83 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AuthDataSource } from '../auth.datasource';
+import { BaseApiService, SingleResponse, ApiResponse } from '../../../core/api';
+import {
+  LoginResponse,
+  TokenVerificationResponse,
+  OTPVerificationResponse,
+} from '../../models/auth.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthRemoteDataSource extends AuthDataSource {
+export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDataSource {
+  protected override resourcePath = 'accounts';
 
-    // TODO: Inject HttpClient here when available
-    // constructor(private http: HttpClient) { super(); }
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.post<SingleResponse<LoginResponse>>('login', { email, password }).pipe(
+      map((response) => response.data)
+    );
+  }
 
-    login(email: string, password: string): Observable<any> {
-        // Mock implementation
-        return of({ token: 'mock-token', refreshToken: 'mock-refresh-token' });
-    }
+  loginWithGoogle(): Observable<LoginResponse> {
+    return this.post<SingleResponse<LoginResponse>>('google/login', {}).pipe(
+      map((response) => response.data)
+    );
+  }
 
-    loginWithGoogle(): Observable<any> {
-        return of({ token: 'mock-google-token', refreshToken: 'mock-refresh-token' });
-    }
+  verifyToken(token: string): Observable<TokenVerificationResponse> {
+    return this.post<SingleResponse<TokenVerificationResponse>>('token/verify', { token }).pipe(
+      map((response) => response.data)
+    );
+  }
 
-    verifyToken(token: string): Observable<any> {
-        return of({ valid: true });
-    }
+  refreshToken(refreshToken: string): Observable<LoginResponse> {
+    return this.post<SingleResponse<LoginResponse>>('token/refresh', { refreshToken }).pipe(
+      map((response) => response.data)
+    );
+  }
 
-    refreshToken(refreshToken: string): Observable<any> {
-        return of({ token: 'new-mock-token', refreshToken: 'new-mock-refresh-token' });
-    }
+  logout(): Observable<void> {
+    return this.post<ApiResponse<void>>('logout', {}).pipe(map(() => void 0));
+  }
 
-    logout(): Observable<void> {
-        return of(void 0);
-    }
+  changePassword(
+    oldPassword: string,
+    newPassword: string,
+    confirmPassword: string
+  ): Observable<void> {
+    return this.post<ApiResponse<void>>('change-password', {
+      oldPassword,
+      newPassword,
+      confirmPassword,
+    }).pipe(map(() => void 0));
+  }
 
-    changePassword(oldPassword: string, newPassword: string, confirmPassword: string): Observable<void> {
-        return of(void 0);
-    }
+  sendOTP(email: string): Observable<void> {
+    return this.post<ApiResponse<void>>('otp-send', { email }).pipe(map(() => void 0));
+  }
 
-    sendOTP(email: string): Observable<void> {
-        return of(void 0);
-    }
+  verifyOTP(email: string, otp: string): Observable<OTPVerificationResponse> {
+    return this.post<SingleResponse<OTPVerificationResponse>>('otp-verify', { email, otp }).pipe(
+      map((response) => response.data)
+    );
+  }
 
-    verifyOTP(email: string, otp: string): Observable<any> {
-        return of({ valid: true, token: 'mock-otp-token' });
-    }
+  resetPassword(email: string): Observable<void> {
+    return this.post<ApiResponse<void>>('password-reset', { email }).pipe(map(() => void 0));
+  }
 
-    resetPassword(email: string): Observable<void> {
-        return of(void 0);
-    }
+  confirmResetPassword(token: string, password: string): Observable<void> {
+    return this.post<ApiResponse<void>>('password-reset/confirm', { token, password }).pipe(
+      map(() => void 0)
+    );
+  }
 
-    confirmResetPassword(token: string, password: string): Observable<void> {
-        return of(void 0);
-    }
-
-    validateResetPasswordToken(token: string): Observable<any> {
-        return of({ valid: true });
-    }
+  validateResetPasswordToken(token: string): Observable<TokenVerificationResponse> {
+    return this.post<SingleResponse<TokenVerificationResponse>>('password-reset/validate_token', {
+      token,
+    }).pipe(map((response) => response.data));
+  }
 }
