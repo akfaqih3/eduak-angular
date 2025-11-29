@@ -1,61 +1,51 @@
 /**
  * API Endpoints Constants
- * Centralized location for all API endpoints
+ * Centralized location for all API endpoint paths
  */
 
-export const API_BASE_URL = '/api';
-
-export const API_ENDPOINTS = {
-  // Account Endpoints
-  ACCOUNT: {
-    BASE: `${API_BASE_URL}/accounts`,
-    REGISTER: `${API_BASE_URL}/accounts/register`,
-    PROFILE: `${API_BASE_URL}/accounts/profile`,
-    UPDATE_PROFILE: `${API_BASE_URL}/accounts/profile`,
-  },
-
-  // Auth Endpoints
-  AUTH: {
-    BASE: `${API_BASE_URL}/auth`,
-    LOGIN: `${API_BASE_URL}/auth/login`,
-    LOGIN_GOOGLE: `${API_BASE_URL}/auth/google`,
-    LOGOUT: `${API_BASE_URL}/auth/logout`,
-    VERIFY_TOKEN: `${API_BASE_URL}/auth/verify-token`,
-    REFRESH_TOKEN: `${API_BASE_URL}/auth/refresh-token`,
-    CHANGE_PASSWORD: `${API_BASE_URL}/auth/change-password`,
-    SEND_OTP: `${API_BASE_URL}/auth/send-otp`,
-    VERIFY_OTP: `${API_BASE_URL}/auth/verify-otp`,
-    RESET_PASSWORD: `${API_BASE_URL}/auth/reset-password`,
-    CONFIRM_RESET_PASSWORD: `${API_BASE_URL}/auth/confirm-reset-password`,
-    VALIDATE_RESET_TOKEN: `${API_BASE_URL}/auth/validate-reset-token`,
-  },
-
-  // Course Endpoints
-  COURSE: {
-    BASE: `${API_BASE_URL}/courses`,
-    BY_ID: (id: number) => `${API_BASE_URL}/courses/${id}`,
-  },
-
-  // Student Endpoints
-  STUDENT: {
-    BASE: `${API_BASE_URL}/student`,
-    ENROLLED_COURSES: `${API_BASE_URL}/student/courses`,
-    ENROLLED_COURSE: (id: number) => `${API_BASE_URL}/student/courses/${id}`,
-  },
-
-  // Teacher Endpoints
-  TEACHER: {
-    BASE: `${API_BASE_URL}/teacher`,
-    COURSES: `${API_BASE_URL}/teacher/courses`,
-    COURSE: (id: number) => `${API_BASE_URL}/teacher/courses/${id}`,
-    CREATE_COURSE: `${API_BASE_URL}/teacher/courses`,
-    UPDATE_COURSE: (id: number) => `${API_BASE_URL}/teacher/courses/${id}`,
-    DELETE_COURSE: (id: number) => `${API_BASE_URL}/teacher/courses/${id}`,
-  },
-
-  // Subject Endpoints
-  SUBJECT: {
-    BASE: `${API_BASE_URL}/subjects`,
-    BY_SLUG: (slug: string) => `${API_BASE_URL}/subjects/${slug}`,
-  },
+// Base Resource Paths
+export const API_RESOURCES = {
+  ACCOUNTS: 'accounts',
+  COURSES: 'courses',
+  STUDENTS: 'students',
+  TEACHERS: 'teachers',
+  SUBJECTS: 'subjects',
 } as const;
+
+// Authentication Endpoints
+export const AUTH_ENDPOINTS = {
+  LOGIN: 'login',
+  GOOGLE_LOGIN: 'google/login',
+  LOGOUT: 'logout',
+  TOKEN_VERIFY: 'token/verify',
+  TOKEN_REFRESH: 'token/refresh',
+  CHANGE_PASSWORD: 'change-password',
+  PASSWORD_RESET: 'password-reset',
+  PASSWORD_RESET_CONFIRM: 'password-reset/confirm',
+  PASSWORD_RESET_VALIDATE_TOKEN: 'password-reset/validate_token',
+  OTP_SEND: 'otp-send',
+  OTP_VERIFY: 'otp-verify',
+} as const;
+
+// Account Endpoints
+export const ACCOUNT_ENDPOINTS = {
+  REGISTER: 'register',
+  PROFILE: 'profile',
+  UPDATE: 'update',
+} as const;
+
+// Student Endpoints
+export const STUDENT_ENDPOINTS = {
+  ENROLLED_COURSES: `${API_RESOURCES.COURSES}/enrolled`,
+  ENROLL: (id: number) => `${API_RESOURCES.COURSES}/${id}/enroll`,
+} as const;
+
+// Teacher Endpoints
+export const TEACHER_ENDPOINTS = {
+  COURSES: `${API_RESOURCES.COURSES}`,
+  COURSE_DETAIL: (id: number) => `${API_RESOURCES.COURSES}/${id}`,
+  CREATE_COURSE: `${API_RESOURCES.COURSES}/create`,
+  UPDATE_COURSE: (id: number) => `${API_RESOURCES.COURSES}/${id}/update`,
+  DELETE_COURSE: (id: number) => `${API_RESOURCES.COURSES}/${id}/delete`,
+} as const;
+

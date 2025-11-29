@@ -8,39 +8,40 @@ import {
   TokenVerificationResponse,
   OTPVerificationResponse,
 } from '../../models/auth.model';
+import { API_RESOURCES, AUTH_ENDPOINTS } from '../../../core/constants/api-endpoints';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDataSource {
-  protected override resourcePath = 'accounts';
+  protected override resourcePath = API_RESOURCES.ACCOUNTS;
 
   login(email: string, password: string): Observable<LoginResponse> {
-    return this.post<SingleResponse<LoginResponse>>('login', { email, password }).pipe(
+    return this.post<SingleResponse<LoginResponse>>(AUTH_ENDPOINTS.LOGIN, { email, password }).pipe(
       map((response) => response.data)
     );
   }
 
   loginWithGoogle(): Observable<LoginResponse> {
-    return this.post<SingleResponse<LoginResponse>>('google/login', {}).pipe(
+    return this.post<SingleResponse<LoginResponse>>(AUTH_ENDPOINTS.GOOGLE_LOGIN, {}).pipe(
       map((response) => response.data)
     );
   }
 
   verifyToken(token: string): Observable<TokenVerificationResponse> {
-    return this.post<SingleResponse<TokenVerificationResponse>>('token/verify', { token }).pipe(
+    return this.post<SingleResponse<TokenVerificationResponse>>(AUTH_ENDPOINTS.TOKEN_VERIFY, { token }).pipe(
       map((response) => response.data)
     );
   }
 
   refreshToken(refreshToken: string): Observable<LoginResponse> {
-    return this.post<SingleResponse<LoginResponse>>('token/refresh', { refreshToken }).pipe(
+    return this.post<SingleResponse<LoginResponse>>(AUTH_ENDPOINTS.TOKEN_REFRESH, { refreshToken }).pipe(
       map((response) => response.data)
     );
   }
 
   logout(): Observable<void> {
-    return this.post<ApiResponse<void>>('logout', {}).pipe(map(() => void 0));
+    return this.post<ApiResponse<void>>(AUTH_ENDPOINTS.LOGOUT, {}).pipe(map(() => void 0));
   }
 
   changePassword(
@@ -48,7 +49,7 @@ export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDat
     newPassword: string,
     confirmPassword: string
   ): Observable<void> {
-    return this.post<ApiResponse<void>>('change-password', {
+    return this.post<ApiResponse<void>>(AUTH_ENDPOINTS.CHANGE_PASSWORD, {
       oldPassword,
       newPassword,
       confirmPassword,
@@ -56,27 +57,27 @@ export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDat
   }
 
   sendOTP(email: string): Observable<void> {
-    return this.post<ApiResponse<void>>('otp-send', { email }).pipe(map(() => void 0));
+    return this.post<ApiResponse<void>>(AUTH_ENDPOINTS.OTP_SEND, { email }).pipe(map(() => void 0));
   }
 
   verifyOTP(email: string, otp: string): Observable<OTPVerificationResponse> {
-    return this.post<SingleResponse<OTPVerificationResponse>>('otp-verify', { email, otp }).pipe(
+    return this.post<SingleResponse<OTPVerificationResponse>>(AUTH_ENDPOINTS.OTP_VERIFY, { email, otp }).pipe(
       map((response) => response.data)
     );
   }
 
   resetPassword(email: string): Observable<void> {
-    return this.post<ApiResponse<void>>('password-reset', { email }).pipe(map(() => void 0));
+    return this.post<ApiResponse<void>>(AUTH_ENDPOINTS.PASSWORD_RESET, { email }).pipe(map(() => void 0));
   }
 
   confirmResetPassword(token: string, password: string): Observable<void> {
-    return this.post<ApiResponse<void>>('password-reset/confirm', { token, password }).pipe(
+    return this.post<ApiResponse<void>>(AUTH_ENDPOINTS.PASSWORD_RESET_CONFIRM, { token, password }).pipe(
       map(() => void 0)
     );
   }
 
   validateResetPasswordToken(token: string): Observable<TokenVerificationResponse> {
-    return this.post<SingleResponse<TokenVerificationResponse>>('password-reset/validate_token', {
+    return this.post<SingleResponse<TokenVerificationResponse>>(AUTH_ENDPOINTS.PASSWORD_RESET_VALIDATE_TOKEN, {
       token,
     }).pipe(map((response) => response.data));
   }

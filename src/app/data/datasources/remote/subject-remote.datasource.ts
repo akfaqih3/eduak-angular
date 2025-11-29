@@ -4,12 +4,13 @@ import { map } from 'rxjs/operators';
 import { SubjectDataSource } from '../subject.datasource';
 import { SubjectModel } from '../../models/subject.model';
 import { BaseApiService } from '../../../core/api/services/base-api.service';
+import {API_RESOURCES} from '../../../core/constants/api-endpoints';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SubjectRemoteDataSource extends BaseApiService<SubjectModel> implements SubjectDataSource {
-    protected resourcePath = 'courses/subjects';
+    protected resourcePath = `${API_RESOURCES.COURSES}/${API_RESOURCES.SUBJECTS}`;
 
     getSubjects(): Observable<SubjectModel[]> {
         return this.getAll().pipe(map(response => response.data));
