@@ -1,2 +1,3 @@
 export { BaseStore } from './base-store';
-export { BaseState, createInitialState } from './base-store.interface';
+export { createInitialState } from './base-store.interface';export type { BaseState } from './base-store.interface';
+

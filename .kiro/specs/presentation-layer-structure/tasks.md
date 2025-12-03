@@ -149,13 +149,21 @@
     - توفير methods بسيطة للمكونات (login, logout, register)
     - _Requirements: 4.1, 4.2_
 
-- [ ] 7. إنشاء Guards للمسارات
-  - [ ] 7.1 إنشاء AuthGuard
+- [x] 7. إنشاء Guards للمسارات
+
+
+
+
+  - [x] 7.1 إنشاء AuthGuard
+
+
     - إنشاء AuthGuard للتحقق من المصادقة
     - إعادة التوجيه لصفحة Login عند عدم المصادقة
     - _Requirements: 5.1_
   
-  - [ ] 7.2 إنشاء RoleGuard
+  - [x] 7.2 إنشاء RoleGuard
+
+
     - إنشاء RoleGuard للتحقق من الصلاحيات
     - منع الوصول للصفحات حسب الدور
     - _Requirements: 5.1_
