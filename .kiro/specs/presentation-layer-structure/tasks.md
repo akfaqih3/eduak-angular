@@ -89,7 +89,10 @@
     - تطبيق الأنماط المناسبة
     - _Requirements: 7.1, 7.2_
   
-  - [ ] 4.2 إنشاء AuthLayout
+  - [-] 4.2 إنشاء AuthLayout
+
+
+
     - إنشاء AuthLayoutComponent لصفحات المصادقة
     - تصميم بسيط ومركز للنماذج
     - _Requirements: 7.1, 7.2_

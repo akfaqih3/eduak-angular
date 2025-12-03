@@ -1,0 +1,30 @@
+<div class="auth-layout">
+  <!-- Background decoration -->
+  <div class="auth-background">
+    <div class="auth-background-shape shape-1"></div>
+    <div class="auth-background-shape shape-2"></div>
+  </div>
+
+  <!-- Main content container -->
+  <div class="auth-container">
+    <!-- Logo/Brand section -->
+    <div class="auth-header">
+      <div class="auth-logo">
+        <img src="/assets/logo.png" alt="Logo" class="logo-image" />
+        <h1 class="brand-name">نظام إدارة التعليم</h1>
+      </div>
+    </div>
+
+    <!-- Form content area -->
+    <div class="auth-content">
+      <router-outlet />
+    </div>
+
+    <!-- Footer -->
+    <div class="auth-footer">
+      <p class="footer-text">
+        &copy; {{ currentYear }} جميع الحقوق محفوظة
+      </p>
+    </div>
+  </div>
+</div>
