@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bs-body-bg);
+}
+
+.layout-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: margin-inline-start 0.3s ease;
+  
+  // Adjust margin when sidebar is open
+  &.sidebar-open {
+    @media (min-width: map-get($grid-breakpoints, 'lg')) {
+      margin-inline-start: 260px; // Sidebar width
+    }
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: map-get($spacers, 4);
+  max-width: 100%;
+  
+  @media (min-width: map-get($grid-breakpoints, 'md')) {
+    padding: map-get($spacers, 5);
+  }
+  
+  @media (min-width: map-get($grid-breakpoints, 'lg')) {
+    padding: map-get($spacers, 6);
+  }
+}
+
+// Sidebar overlay for mobile
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  
+  @media (max-width: map-get($grid-breakpoints, 'lg') - 1) {
+    display: block;
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .main-layout {
+    background-color: var(--bs-dark);
+  }
+}

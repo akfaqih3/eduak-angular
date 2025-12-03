@@ -68,8 +68,22 @@
     - إنشاء Breadcrumb Component لمسار التنقل
     - _Requirements: 2.1_
 
-- [ ] 4. إنشاء التخطيطات (Layouts)
-  - [ ] 4.1 إنشاء MainLayout
+- [x] 4. إنشاء التخطيطات (Layouts)
+
+
+
+
+
+
+
+  - [x] 4.1 إنشاء MainLayout
+
+
+
+
+
+
+
     - إنشاء MainLayoutComponent مع Navbar و Sidebar
     - إضافة router-outlet لعرض المحتوى الديناميكي
     - تطبيق الأنماط المناسبة
@@ -78,11 +92,6 @@
   - [ ] 4.2 إنشاء AuthLayout
     - إنشاء AuthLayoutComponent لصفحات المصادقة
     - تصميم بسيط ومركز للنماذج
-    - _Requirements: 7.1, 7.2_
-  
-  - [ ] 4.3 إنشاء AdminLayout
-    - إنشاء AdminLayoutComponent للوحة التحكم
-    - إضافة قائمة جانبية متقدمة
     - _Requirements: 7.1, 7.2_
 
 - [ ] 5. إعداد نظام إدارة الحالة (State Management)
@@ -107,7 +116,7 @@
     - إنشاء AuthFacade للتعامل مع عمليات المصادقة
     - ربط AuthFacade مع AuthStore و Use Cases
     - توفير methods بسيطة للمكونات (login, logout, register)
-    - _Requirements: 4.1, 4.2, 4.3_
+    - _Requirements: 4.1, 4.2_
 
 - [ ] 7. إنشاء Guards للمسارات
   - [ ] 7.1 إنشاء AuthGuard
@@ -159,7 +168,7 @@
     - إنشاء RegisterViewModel
     - إنشاء UserProfileViewModel
     - إنشاء Mapper functions من Domain Entities
-    - _Requirements: 4.3_
+    - _Requirements: _
   
   - [ ] 11.3 إنشاء صفحة Login
     - إنشاء LoginComponent (Smart Component)
