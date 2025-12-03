@@ -1,0 +1,112 @@
+@import '../../../../styles/variables';
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  // Sizes
+  &.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: $border-radius-sm;
+  }
+
+  &.btn-md {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: $border-radius;
+  }
+
+  &.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: $border-radius-lg;
+  }
+
+  // Variants
+  &.btn-primary {
+    background-color: $primary;
+    color: white;
+    border-color: $primary;
+
+    &:hover:not(:disabled) {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $secondary;
+    color: white;
+    border-color: $secondary;
+
+    &:hover:not(:disabled) {
+      background-color: darken($secondary, 10%);
+      border-color: darken($secondary, 10%);
+    }
+  }
+
+  &.btn-danger {
+    background-color: $danger;
+    color: white;
+    border-color: $danger;
+
+    &:hover:not(:disabled) {
+      background-color: darken($danger, 10%);
+      border-color: darken($danger, 10%);
+    }
+  }
+
+  &.btn-success {
+    background-color: $success;
+    color: white;
+    border-color: $success;
+
+    &:hover:not(:disabled) {
+      background-color: darken($success, 10%);
+      border-color: darken($success, 10%);
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning;
+    color: white;
+    border-color: $warning;
+
+    &:hover:not(:disabled) {
+      background-color: darken($warning, 10%);
+      border-color: darken($warning, 10%);
+    }
+  }
+
+  &.btn-info {
+    background-color: $info;
+    color: white;
+    border-color: $info;
+
+    &:hover:not(:disabled) {
+      background-color: darken($info, 10%);
+      border-color: darken($info, 10%);
+    }
+  }
+
+  .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+  }
+}

@@ -1,0 +1,78 @@
+<aside [class]="'sidebar' + (isOpen() ? ' sidebar-open' : ' sidebar-closed')">
+  <div class="sidebar-content">
+    <nav class="sidebar-nav">
+      <ul class="sidebar-menu">
+        @for (item of items(); track item.label) {
+          <li class="sidebar-item">
+            @if (item.children && item.children.length > 0) {
+              <button 
+                class="sidebar-link sidebar-link-expandable"
+                (click)="toggleItem(item.label)"
+              >
+                @if (item.icon) {
+                  <span class="sidebar-icon" [innerHTML]="item.icon"></span>
+                }
+                <span class="sidebar-label">{{ item.label }}</span>
+                @if (item.badge) {
+                  <span class="sidebar-badge">{{ item.badge }}</span>
+                }
+                <svg 
+                  class="sidebar-chevron"
+                  [class.expanded]="isExpanded(item.label)"
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              
+              @if (isExpanded(item.label)) {
+                <ul class="sidebar-submenu">
+                  @for (child of item.children; track child.label) {
+                    <li class="sidebar-subitem">
+                      <a 
+                        [routerLink]="child.route" 
+                        routerLinkActive="active"
+                        class="sidebar-link sidebar-link-sub"
+                      >
+                        <span class="sidebar-label">{{ child.label }}</span>
+                        @if (child.badge) {
+                          <span class="sidebar-badge">{{ child.badge }}</span>
+                        }
+                      </a>
+                    </li>
+                  }
+                </ul>
+              }
+            } @else {
+              <a 
+                [routerLink]="item.route" 
+                routerLinkActive="active"
+                class="sidebar-link"
+              >
+                @if (item.icon) {
+                  <span class="sidebar-icon" [innerHTML]="item.icon"></span>
+                }
+                <span class="sidebar-label">{{ item.label }}</span>
+                @if (item.badge) {
+                  <span class="sidebar-badge">{{ item.badge }}</span>
+                }
+              </a>
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+@if (isOpen()) {
+  <div class="sidebar-overlay" (click)="onClose()"></div>
+}

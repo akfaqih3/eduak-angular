@@ -1,0 +1,125 @@
+@import '../../../../styles/variables';
+
+.alert {
+  padding: 1rem;
+  border-radius: $border-radius;
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+
+  .alert-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    .alert-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .alert-message {
+      flex: 1;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .alert-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+
+      .btn-retry {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        border: none;
+        border-radius: $border-radius-sm;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background-color: transparent;
+        text-decoration: underline;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .btn-dismiss {
+        padding: 0.25rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $border-radius-sm;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  &.alert-error {
+    background-color: lighten($danger, 40%);
+    border-color: lighten($danger, 30%);
+    color: darken($danger, 10%);
+
+    .alert-icon svg {
+      stroke: $danger;
+    }
+
+    .btn-retry {
+      color: darken($danger, 10%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($danger, 0.2);
+      border-color: rgba($danger, 0.3);
+      color: lighten($danger, 20%);
+    }
+  }
+
+  &.alert-warning {
+    background-color: lighten($warning, 40%);
+    border-color: lighten($warning, 30%);
+    color: darken($warning, 20%);
+
+    .alert-icon svg {
+      stroke: $warning;
+    }
+
+    .btn-retry {
+      color: darken($warning, 20%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($warning, 0.2);
+      border-color: rgba($warning, 0.3);
+      color: lighten($warning, 20%);
+    }
+  }
+
+  &.alert-info {
+    background-color: lighten($info, 40%);
+    border-color: lighten($info, 30%);
+    color: darken($info, 20%);
+
+    .alert-icon svg {
+      stroke: $info;
+    }
+
+    .btn-retry {
+      color: darken($info, 20%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($info, 0.2);
+      border-color: rgba($info, 0.3);
+      color: lighten($info, 20%);
+    }
+  }
+}

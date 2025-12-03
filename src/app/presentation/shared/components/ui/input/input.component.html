@@ -1,0 +1,28 @@
+<div class="input-wrapper">
+  @if (label()) {
+    <label class="input-label">
+      {{ label() }}
+      @if (required()) {
+        <span class="text-danger">*</span>
+      }
+    </label>
+  }
+  
+  <input
+    [type]="type()"
+    [value]="value"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [readonly]="readonly()"
+    [class.is-invalid]="error()"
+    class="form-control"
+    (input)="onInputChange($event)"
+    (blur)="onBlur()"
+  />
+  
+  @if (error()) {
+    <div class="error-message">
+      {{ error() }}
+    </div>
+  }
+</div>

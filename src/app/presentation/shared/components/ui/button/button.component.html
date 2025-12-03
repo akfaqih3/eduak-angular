@@ -1,0 +1,11 @@
+<button
+  [type]="type()"
+  [disabled]="disabled() || loading()"
+  [class]="'btn btn-' + variant() + ' btn-' + size() + (fullWidth() ? ' w-100' : '')"
+  (click)="onClick($event)"
+>
+  @if (loading()) {
+    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+  }
+  <ng-content></ng-content>
+</button>

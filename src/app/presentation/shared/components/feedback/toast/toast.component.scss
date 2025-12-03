@@ -1,0 +1,155 @@
+@import '../../../../styles/variables';
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-lg;
+  min-width: 300px;
+  max-width: 500px;
+  margin-bottom: 0.75rem;
+  animation: slideIn 0.3s ease-out;
+  background-color: white;
+  border: 1px solid transparent;
+
+  .toast-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toast-message {
+    flex: 1;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $dark;
+  }
+
+  .toast-close {
+    flex-shrink: 0;
+    padding: 0.25rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius-sm;
+    transition: all 0.2s ease;
+    color: inherit;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &.toast-success {
+    border-color: $success;
+    background-color: lighten($success, 45%);
+
+    .toast-icon svg {
+      stroke: $success;
+    }
+
+    .toast-message {
+      color: darken($success, 20%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($success, 0.2);
+      border-color: rgba($success, 0.4);
+
+      .toast-message {
+        color: lighten($success, 20%);
+      }
+    }
+  }
+
+  &.toast-error {
+    border-color: $danger;
+    background-color: lighten($danger, 45%);
+
+    .toast-icon svg {
+      stroke: $danger;
+    }
+
+    .toast-message {
+      color: darken($danger, 10%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($danger, 0.2);
+      border-color: rgba($danger, 0.4);
+
+      .toast-message {
+        color: lighten($danger, 20%);
+      }
+    }
+  }
+
+  &.toast-warning {
+    border-color: $warning;
+    background-color: lighten($warning, 45%);
+
+    .toast-icon svg {
+      stroke: $warning;
+    }
+
+    .toast-message {
+      color: darken($warning, 25%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($warning, 0.2);
+      border-color: rgba($warning, 0.4);
+
+      .toast-message {
+        color: lighten($warning, 20%);
+      }
+    }
+  }
+
+  &.toast-info {
+    border-color: $info;
+    background-color: lighten($info, 45%);
+
+    .toast-icon svg {
+      stroke: $info;
+    }
+
+    .toast-message {
+      color: darken($info, 20%);
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba($info, 0.2);
+      border-color: rgba($info, 0.4);
+
+      .toast-message {
+        color: lighten($info, 20%);
+      }
+    }
+  }
+
+  [data-theme='dark'] & {
+    background-color: #2d3748;
+
+    .toast-message {
+      color: $light;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

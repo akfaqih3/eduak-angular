@@ -39,20 +39,30 @@
     - ربط السمات بمتغيرات CSS
     - _Requirements: 8.1_
 
-- [ ] 3. بناء المكونات المشتركة الأساسية (Shared Components)
-  - [ ] 3.1 إنشاء مكونات UI الأساسية
+- [x] 3. بناء المكونات المشتركة الأساسية (Shared Components)
+
+
+
+
+  - [x] 3.1 إنشاء مكونات UI الأساسية
+
+
     - إنشاء Button Component مع أنماط مختلفة (primary, secondary, danger)
     - إنشاء Input Component مع دعم الأخطاء والتحقق
     - إنشاء Card Component للعرض المنظم
     - _Requirements: 2.1, 2.3_
   
-  - [ ] 3.2 إنشاء مكونات التغذية الراجعة
+  - [x] 3.2 إنشاء مكونات التغذية الراجعة
+
+
     - إنشاء LoadingSpinner Component لحالات التحميل
     - إنشاء ErrorMessage Component لعرض الأخطاء
     - إنشاء Toast/Notification Component للإشعارات
     - _Requirements: 9.1, 9.2_
   
-  - [ ] 3.3 إنشاء مكونات التنقل
+  - [x] 3.3 إنشاء مكونات التنقل
+
+
     - إنشاء Navbar Component للشريط العلوي
     - إنشاء Sidebar Component للقائمة الجانبية
     - إنشاء Breadcrumb Component لمسار التنقل
