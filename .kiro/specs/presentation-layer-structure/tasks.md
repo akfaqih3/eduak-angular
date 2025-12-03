@@ -110,7 +110,13 @@
     - تعريف الواجهات الأساسية للحالة (loading, error, data)
     - _Requirements: 3.1, 3.2_
   
-  - [ ] 5.2 إنشاء مثال AuthStore
+  - [x] 5.2 إنشاء مثال AuthStore
+
+
+
+
+
+
     - إنشاء AuthStore مع signals للمستخدم والحالة
     - إضافة computed signals (isAuthenticated, userRole)
     - إضافة methods لتحديث الحالة
