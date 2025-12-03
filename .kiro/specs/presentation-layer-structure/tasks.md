@@ -89,7 +89,9 @@
     - تطبيق الأنماط المناسبة
     - _Requirements: 7.1, 7.2_
   
-  - [-] 4.2 إنشاء AuthLayout
+  - [x] 4.2 إنشاء AuthLayout
+
+
 
 
 
@@ -98,7 +100,12 @@
     - _Requirements: 7.1, 7.2_
 
 - [ ] 5. إعداد نظام إدارة الحالة (State Management)
-  - [ ] 5.1 إنشاء Store Pattern الأساسي
+  - [x] 5.1 إنشاء Store Pattern الأساسي
+
+
+
+
+
     - إنشاء BaseStore class مع Signals
     - تعريف الواجهات الأساسية للحالة (loading, error, data)
     - _Requirements: 3.1, 3.2_
