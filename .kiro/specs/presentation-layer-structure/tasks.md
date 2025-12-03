@@ -168,18 +168,28 @@
     - منع الوصول للصفحات حسب الدور
     - _Requirements: 5.1_
 
-- [ ] 8. إنشاء Interceptors
-  - [ ] 8.1 إنشاء AuthInterceptor
+- [x] 8. إنشاء Interceptors
+
+
+
+
+  - [x] 8.1 إنشاء AuthInterceptor
+
+
     - إضافة Token تلقائياً لجميع الطلبات
     - معالجة حالات انتهاء صلاحية Token
     - _Requirements: 4.2_
   
-  - [ ] 8.2 إنشاء ErrorInterceptor
+  - [x] 8.2 إنشاء ErrorInterceptor
+
+
     - معالجة الأخطاء المركزية من API
     - عرض رسائل خطأ واضحة للمستخدم
     - _Requirements: 9.1_
   
-  - [ ] 8.3 إنشاء LoadingInterceptor
+  - [x] 8.3 إنشاء LoadingInterceptor
+
+
     - إدارة حالة التحميل العامة
     - عرض/إخفاء مؤشر التحميل تلقائياً
     - _Requirements: 9.2_
