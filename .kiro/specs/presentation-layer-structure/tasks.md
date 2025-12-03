@@ -122,13 +122,28 @@
     - إضافة methods لتحديث الحالة
     - _Requirements: 3.1, 3.2, 3.3_
 
-- [ ] 6. إنشاء Facade Pattern للميزات
-  - [ ] 6.1 إنشاء BaseFacade
+- [x] 6. إنشاء Facade Pattern للميزات
+
+
+
+
+
+
+  - [x] 6.1 إنشاء BaseFacade
+
+
     - إنشاء BaseFacade class مع الوظائف المشتركة
     - ربط Facade مع Use Cases من طبقة Domain
     - _Requirements: 4.1, 4.2_
   
-  - [ ] 6.2 إنشاء مثال AuthFacade
+  - [x] 6.2 إنشاء مثال AuthFacade
+
+
+
+
+
+
+
     - إنشاء AuthFacade للتعامل مع عمليات المصادقة
     - ربط AuthFacade مع AuthStore و Use Cases
     - توفير methods بسيطة للمكونات (login, logout, register)
