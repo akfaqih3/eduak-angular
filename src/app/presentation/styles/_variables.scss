@@ -1,9 +1,109 @@
 /**
- * SCSS Variables
- * Define all global SCSS variables here
+ * Bootstrap Custom Variables
+ * تخصيص متغيرات Bootstrap
  */
 
-// Colors - will be defined in task 2.2
-// Typography - will be defined in task 2.2
-// Spacing - will be defined in task 2.2
-// Breakpoints - will be defined in task 2.2
+// ============================================
+// Colors - الألوان
+// ============================================
+
+// Primary Color
+$primary: #2196f3;
+$secondary: #6c757d;
+$success: #4caf50;
+$info: #03a9f4;
+$warning: #ff9800;
+$danger: #f44336;
+$light: #f8f9fa;
+$dark: #212529;
+
+// ============================================
+// Typography - الخطوط
+// ============================================
+
+$font-family-sans-serif: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-base: $font-family-sans-serif;
+
+// Font Sizes
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+// ============================================
+// Spacing - المسافات
+// ============================================
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 0.75,
+  4: $spacer,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 2.5,
+  8: $spacer * 3,
+);
+
+// ============================================
+// Grid Breakpoints
+// ============================================
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// ============================================
+// Border Radius
+// ============================================
+
+$border-radius: 0.375rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 1rem;
+$border-radius-2xl: 2rem;
+
+// ============================================
+// Shadows
+// ============================================
+
+$box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+// ============================================
+// Enable/Disable Features
+// ============================================
+
+$enable-dark-mode: true;
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-smooth-scroll: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-cssgrid: true;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: true;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+
+// ============================================
+// RTL Support
+// ============================================
+
+$enable-rtl: true;

@@ -1,0 +1,121 @@
+/**
+ * Custom Styles
+ * أنماط مخصصة إضافية
+ */
+
+// ============================================
+// Custom Utilities
+// ============================================
+
+// Smooth transitions
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.transition-fast {
+  transition: all 0.15s ease-in-out;
+}
+
+.transition-slow {
+  transition: all 0.5s ease-in-out;
+}
+
+// Custom scrollbar
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--bs-secondary-bg);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 10px;
+
+    &:hover {
+      background: var(--bs-secondary-color);
+    }
+  }
+}
+
+// ============================================
+// Theme Specific Styles
+// ============================================
+
+[data-bs-theme='light'] {
+  --custom-bg-elevated: #ffffff;
+  --custom-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme='dark'] {
+  --custom-bg-elevated: #2d3748;
+  --custom-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+// ============================================
+// Custom Components
+// ============================================
+
+.card-elevated {
+  background-color: var(--custom-bg-elevated);
+  box-shadow: var(--custom-shadow);
+}
+
+// ============================================
+// RTL Specific Adjustments
+// ============================================
+
+[dir='rtl'] {
+  // Add RTL specific styles here if needed
+}
+
+// ============================================
+// Animations
+// ============================================
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.3s ease-in-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.3s ease-in-out;
+}

@@ -1,0 +1,13 @@
+/**
+ * Bootstrap Import with Custom Variables
+ * استيراد Bootstrap مع المتغيرات المخصصة
+ */
+
+// 1. Include custom variables first
+@use 'variables' as *;
+
+// 2. Include Bootstrap
+@use 'bootstrap/scss/bootstrap' as *;
+
+// 3. Include custom styles
+@use 'custom';
