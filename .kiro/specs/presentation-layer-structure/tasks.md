@@ -1,6 +1,11 @@
 # خطة تنفيذ هيكل طبقة العرض
 
-- [ ] 1. إنشاء الهيكل الأساسي لطبقة Presentation
+- [x] 1. إنشاء الهيكل الأساسي لطبقة Presentation
+
+
+
+
+
   - إنشاء المجلدات الرئيسية: features, shared, layouts, guards, interceptors, directives, pipes, styles
   - إنشاء ملفات index.ts لكل مجلد لتسهيل الاستيراد
   - _Requirements: 1.1, 2.1_
