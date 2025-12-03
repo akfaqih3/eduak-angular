@@ -31,7 +31,7 @@ export class AccountRepositoryImpl implements AccountRepository {
     try {
       const model = AccountMapper.toModel(account);
       const result = await firstValueFrom(
-        this.dataSource.update(model).pipe(map(AccountMapper.toDomain))
+        this.dataSource.updateAcount(model).pipe(map(AccountMapper.toDomain))
       );
       return Result.success(result);
     } catch (error) {
