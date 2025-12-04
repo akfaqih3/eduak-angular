@@ -1,0 +1,45 @@
+<div class="register-page">
+  <div class="register-container">
+    <app-card>
+      <div class="register-header">
+        <h1>إنشاء حساب جديد</h1>
+        <p>انضم إلينا وابدأ رحلتك التعليمية</p>
+      </div>
+
+      @if (successMessage()) {
+        <div class="success-message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <p>{{ successMessage() }}</p>
+        </div>
+      }
+
+      @if (errorMessage()) {
+        <app-error-message
+          [message]="errorMessage()!"
+          (close)="clearError()"
+        />
+      }
+
+      @if (submitting()) {
+        <app-loading-spinner />
+      } @else {
+        <app-register-form
+          [submitting]="submitting()"
+          (submitForm)="onRegister($event)"
+        />
+      }
+
+      <div class="register-footer">
+        <p>
+          لديك حساب بالفعل؟
+          <a (click)="navigateToLogin()" class="login-link">
+            تسجيل الدخول
+          </a>
+        </p>
+      </div>
+    </app-card>
+  </div>
+</div>

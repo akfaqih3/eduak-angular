@@ -1,0 +1,102 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+  <div class="form-group">
+    <app-input
+      formControlName="name"
+      label="الاسم الكامل"
+      type="text"
+      placeholder="أدخل اسمك الكامل"
+      [error]="getErrorMessage('name')"
+      [disabled]="submitting()"
+    />
+  </div>
+
+  <div class="form-group">
+    <app-input
+      formControlName="email"
+      label="البريد الإلكتروني"
+      type="email"
+      placeholder="example@domain.com"
+      [error]="getErrorMessage('email')"
+      [disabled]="submitting()"
+    />
+  </div>
+
+  <div class="form-group">
+    <app-input
+      formControlName="phone"
+      label="رقم الهاتف (اختياري)"
+      type="tel"
+      placeholder="05xxxxxxxx"
+      [error]="getErrorMessage('phone')"
+      [disabled]="submitting()"
+    />
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <app-input
+        formControlName="password"
+        label="كلمة المرور"
+        type="password"
+        placeholder="••••••••"
+        [error]="getErrorMessage('password')"
+        [disabled]="submitting()"
+      />
+    </div>
+
+    <div class="form-group">
+      <app-input
+        formControlName="confirmPassword"
+        label="تأكيد كلمة المرور"
+        type="password"
+        placeholder="••••••••"
+        [error]="getErrorMessage('confirmPassword')"
+        [disabled]="submitting()"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">نوع الحساب</label>
+    <select
+      formControlName="role"
+      class="form-select"
+      [disabled]="submitting()"
+    >
+      @for (option of roleOptions; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="terms-checkbox">
+      <input
+        type="checkbox"
+        formControlName="acceptTerms"
+        [disabled]="submitting()"
+      />
+      <span>
+        أوافق على
+        <a href="#" class="terms-link">الشروط والأحكام</a>
+        و
+        <a href="#" class="terms-link">سياسة الخصوصية</a>
+      </span>
+    </label>
+    @if (hasError('acceptTerms')) {
+      <span class="error-text">{{ getErrorMessage('acceptTerms') }}</span>
+    }
+  </div>
+
+  <div class="form-actions">
+    <app-button
+      type="submit"
+      variant="primary"
+      [disabled]="registerForm.invalid || submitting()"
+      [loading]="submitting()"
+      [fullWidth]="true"
+    >
+      إنشاء حساب
+    </app-button>
+  </div>
+</form>

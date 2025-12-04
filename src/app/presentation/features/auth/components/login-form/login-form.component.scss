@@ -1,0 +1,57 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    accent-color: var(--primary-color, #667eea);
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #718096);
+  }
+
+  &:hover span {
+    color: var(--text-primary, #1a202c);
+  }
+}
+
+.forgot-password {
+  font-size: 0.9rem;
+  color: var(--primary-color, #667eea);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--primary-dark, #5a67d8);
+    text-decoration: underline;
+  }
+}
+
+.form-actions {
+  margin-top: 0.5rem;
+}

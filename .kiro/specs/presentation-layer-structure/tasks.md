@@ -216,32 +216,46 @@
   - إنشاء TruncatePipe لاختصار النصوص الطويلة
   - _Requirements: 2.1_
 
-- [ ] 11. إنشاء ميزة المصادقة كمثال (Auth Feature)
-  - [ ] 11.1 إنشاء هيكل ميزة Auth
+- [x] 11. إنشاء ميزة المصادقة كمثال (Auth Feature)
+
+
+
+
+  - [x] 11.1 إنشاء هيكل ميزة Auth
+
+
     - إنشاء المجلدات: pages, components, services, models, forms
     - إنشاء auth.routes.ts للمسارات
     - _Requirements: 1.1, 1.2, 5.1_
   
-  - [ ] 11.2 إنشاء ViewModels
+  - [x] 11.2 إنشاء ViewModels
+
+
     - إنشاء LoginViewModel
     - إنشاء RegisterViewModel
     - إنشاء UserProfileViewModel
     - إنشاء Mapper functions من Domain Entities
     - _Requirements: _
   
-  - [ ] 11.3 إنشاء صفحة Login
+  - [x] 11.3 إنشاء صفحة Login
+
+
     - إنشاء LoginComponent (Smart Component)
     - ربط المكون مع AuthFacade
     - معالجة حالات النجاح والفشل
     - _Requirements: 4.1, 4.2, 5.2_
   
-  - [ ] 11.4 إنشاء نموذج Login
+  - [x] 11.4 إنشاء نموذج Login
+
+
     - إنشاء LoginFormComponent (Presentational)
     - استخدام Reactive Forms مع التحقق
     - عرض رسائل الأخطاء
     - _Requirements: 6.1, 6.2_
   
-  - [ ] 11.5 إنشاء صفحة Register
+  - [x] 11.5 إنشاء صفحة Register
+
+
     - إنشاء RegisterComponent
     - إنشاء RegisterFormComponent
     - ربط مع AuthFacade

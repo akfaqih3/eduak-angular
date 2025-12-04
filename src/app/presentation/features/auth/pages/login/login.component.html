@@ -1,0 +1,35 @@
+<div class="login-page">
+  <div class="login-container">
+    <app-card>
+      <div class="login-header">
+        <h1>تسجيل الدخول</h1>
+        <p>مرحباً بك! يرجى تسجيل الدخول للمتابعة</p>
+      </div>
+
+      @if (errorMessage()) {
+        <app-error-message
+          [message]="errorMessage()!"
+          (close)="clearError()"
+        />
+      }
+
+      @if (submitting()) {
+        <app-loading-spinner />
+      } @else {
+        <app-login-form
+          [submitting]="submitting()"
+          (submitForm)="onLogin($event)"
+        />
+      }
+
+      <div class="login-footer">
+        <p>
+          ليس لديك حساب؟
+          <a (click)="navigateToRegister()" class="register-link">
+            إنشاء حساب جديد
+          </a>
+        </p>
+      </div>
+    </app-card>
+  </div>
+</div>
