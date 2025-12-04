@@ -205,7 +205,12 @@
   - إنشاء LazyLoadDirective لتحميل الصور بشكل كسول
   - _Requirements: 2.1_
 
-- [ ] 10. إنشاء Pipes المخصصة
+- [x] 10. إنشاء Pipes المخصصة
+
+
+
+
+
   - إنشاء DateFormatPipe لتنسيق التواريخ
   - إنشاء CurrencyFormatPipe لتنسيق العملات
   - إنشاء TruncatePipe لاختصار النصوص الطويلة
