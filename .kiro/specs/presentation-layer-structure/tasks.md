@@ -194,7 +194,12 @@
     - عرض/إخفاء مؤشر التحميل تلقائياً
     - _Requirements: 9.2_
 
-- [ ] 9. إنشاء Directives المخصصة
+- [x] 9. إنشاء Directives المخصصة
+
+
+
+
+
   - إنشاء ClickOutsideDirective للتعامل مع النقر خارج العنصر
   - إنشاء PermissionDirective لإخفاء/إظهار العناصر حسب الصلاحيات
   - إنشاء LazyLoadDirective لتحميل الصور بشكل كسول
