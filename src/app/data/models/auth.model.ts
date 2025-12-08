@@ -1,6 +1,6 @@
 export interface LoginResponse {
-  token: string;
-  refreshToken: string;
+  access: string;
+  refresh: string;
 }
 
 export interface TokenVerificationResponse {

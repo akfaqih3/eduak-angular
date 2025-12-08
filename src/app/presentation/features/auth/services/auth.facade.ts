@@ -75,7 +75,7 @@ export class AuthFacade extends BaseFacade<UserProfileViewModel, AuthStore> {
       () => this.loginUseCase.execute(email, password),
       async (loginResponse: LoginResponse) => {
         // Store the token
-        this.store.setAuthToken(loginResponse.token);
+        this.store.setAuthToken(loginResponse.access);
         
         // Fetch user profile after successful login
         await this.loadUserProfile();
