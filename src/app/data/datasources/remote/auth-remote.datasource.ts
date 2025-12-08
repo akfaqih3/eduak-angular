@@ -17,9 +17,7 @@ export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDat
   protected override resourcePath = API_RESOURCES.ACCOUNTS;
 
   login(email: string, password: string): Observable<LoginResponse> {
-    return this.post<SingleResponse<LoginResponse>>(AUTH_ENDPOINTS.LOGIN, { email, password }).pipe(
-      map((response) => response.data)
-    );
+    return this.post<LoginResponse>(AUTH_ENDPOINTS.LOGIN, { email, password });
   }
 
   loginWithGoogle(): Observable<LoginResponse> {

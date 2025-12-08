@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -14,13 +14,16 @@ import { AccountDataSource } from './data/datasources/account.datasource';
 import { AccountRemoteDataSource } from './data/datasources/remote/account-remote.datasource';
 import { AccountRepository } from './domain';
 import { AccountRepositoryImpl } from './data/repositories/account-repository.impl';
+import { authInterceptor } from './presentation/interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withInterceptorsFromDi(),withFetch()),
+    provideHttpClient(withInterceptorsFromDi(),withFetch(),withInterceptors([
+      authInterceptor
+    ])),
     provideApiConfig({
       baseUrl: `${environment.apiUrl}/${environment.apiVersion}`,
     }),
