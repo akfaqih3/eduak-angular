@@ -1,0 +1,27 @@
+<div class="unauthorized-container">
+  <div class="unauthorized-content">
+    <div class="error-code">403</div>
+    <h1 class="error-title">غير مصرح لك بالدخول</h1>
+    <p class="error-description">
+      عذراً، ليس لديك الصلاحيات اللازمة للوصول إلى هذه الصفحة.
+      يرجى التواصل مع المسؤول إذا كنت تعتقد أن هذا خطأ.
+    </p>
+    <div class="actions">
+      <a routerLink="/" class="btn btn-primary">
+        <i class="icon">🏠</i>
+        العودة للرئيسية
+      </a>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="icon">←</i>
+        الرجوع للخلف
+      </button>
+    </div>
+  </div>
+  
+  <div class="illustration">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="80" fill="#f0f0f0" />
+      <text x="100" y="120" text-anchor="middle" font-size="60" fill="#666">🔒</text>
+    </svg>
+  </div>
+</div>

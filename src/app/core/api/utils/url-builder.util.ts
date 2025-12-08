@@ -61,7 +61,7 @@ export class UrlBuilder {
     static combine(baseUrl: string, path: string): string {
         const cleanBase = baseUrl.replace(/\/+$/, '');
         const cleanPath = path.replace(/^\/+/, '');
-        return `${cleanBase}/${cleanPath}`;
+        return `${cleanBase}/${cleanPath}/`;
     }
 
     /**

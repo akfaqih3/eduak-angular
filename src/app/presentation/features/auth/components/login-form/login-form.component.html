@@ -6,7 +6,6 @@
       type="email"
       placeholder="example@domain.com"
       [error]="getErrorMessage('email')"
-      [disabled]="submitting()"
     />
   </div>
 
@@ -17,7 +16,6 @@
       type="password"
       placeholder="••••••••"
       [error]="getErrorMessage('password')"
-      [disabled]="submitting()"
     />
   </div>
 
@@ -26,7 +24,6 @@
       <input
         type="checkbox"
         formControlName="rememberMe"
-        [disabled]="submitting()"
       />
       <span>تذكرني</span>
     </label>

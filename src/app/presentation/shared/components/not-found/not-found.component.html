@@ -1,0 +1,26 @@
+<div class="not-found-container">
+  <div class="not-found-content">
+    <div class="error-code">404</div>
+    <h1 class="error-title">الصفحة غير موجودة</h1>
+    <p class="error-description">
+      عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
+    </p>
+    <div class="actions">
+      <a routerLink="/" class="btn btn-primary">
+        <i class="icon">🏠</i>
+        العودة للرئيسية
+      </a>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        <i class="icon">←</i>
+        الرجوع للخلف
+      </button>
+    </div>
+  </div>
+  
+  <div class="illustration">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="80" fill="#f0f0f0" />
+      <text x="100" y="120" text-anchor="middle" font-size="60" fill="#666">?</text>
+    </svg>
+  </div>
+</div>

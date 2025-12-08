@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://api.eduak.com/api',
+    apiUrl: 'https://eduak-backend.onrender.com/api',
     apiVersion: 'v1'
 };

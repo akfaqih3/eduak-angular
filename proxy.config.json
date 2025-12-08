@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://eduak-backend.onrender.com",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }

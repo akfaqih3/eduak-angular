@@ -59,9 +59,11 @@ export class LoginFormComponent {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
+      this.loginForm.disable();
       const formValue = this.loginForm.getRawValue();
       this.submitForm.emit(formValue as LoginViewModel);
     }
+    this.loginForm.enable();
   }
 
   /**

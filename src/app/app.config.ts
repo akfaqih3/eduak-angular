@@ -1,20 +1,32 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideApiConfig } from './core/api/api-config.provider';
 import { environment } from '../environments/environment';
+import { AuthDataSource } from './data/datasources/auth.datasource';
+import { AuthRepository } from './domain/repositories/auth.repository';
+import { AuthRemoteDataSource } from './data/datasources/remote/auth-remote.datasource';
+import { AuthRepositoryImpl } from './data/repositories/auth-repository.impl';
+import { AccountDataSource } from './data/datasources/account.datasource';
+import { AccountRemoteDataSource } from './data/datasources/remote/account-remote.datasource';
+import { AccountRepository } from './domain';
+import { AccountRepositoryImpl } from './data/repositories/account-repository.impl';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptorsFromDi(),withFetch()),
     provideApiConfig({
-      baseUrl: environment.apiUrl
-    })
+      baseUrl: `${environment.apiUrl}/${environment.apiVersion}`,
+    }),
+    {provide: AuthDataSource, useClass: AuthRemoteDataSource},
+    {provide: AuthRepository, useClass: AuthRepositoryImpl},
+    {provide: AccountDataSource, useClass: AccountRemoteDataSource},
+    {provide: AccountRepository, useClass: AccountRepositoryImpl}
   ]
 };
