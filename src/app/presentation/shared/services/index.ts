@@ -8,3 +8,4 @@ export * from './notification.service';
 export * from './loading.service';
 export * from './theme.service';
 export * from './dialog.service';
+export * from './language.service';

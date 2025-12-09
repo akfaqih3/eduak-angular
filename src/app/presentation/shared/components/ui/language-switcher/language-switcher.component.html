@@ -1,0 +1,9 @@
+<button 
+  type="button" 
+  class="language-switcher-btn"
+  (click)="toggleLanguage()"
+  [attr.aria-label]="'Switch Language'"
+>
+  <span class="language-icon">🌐</span>
+  <span class="language-text">{{ getCurrentLanguageName() }}</span>
+</button>

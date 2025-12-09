@@ -1,12 +1,13 @@
 import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 export type ErrorType = 'error' | 'warning' | 'info';
 
 @Component({
   selector: 'app-error-message',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './error-message.component.html',
   styleUrl: './error-message.component.scss'
 })

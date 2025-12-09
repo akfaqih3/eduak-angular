@@ -1,18 +1,18 @@
 <div class="not-found-container">
   <div class="not-found-content">
     <div class="error-code">404</div>
-    <h1 class="error-title">الصفحة غير موجودة</h1>
+    <h1 class="error-title">{{ 'errors.notFound' | translate }}</h1>
     <p class="error-description">
-      عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
+      {{ 'errors.notFoundDescription' | translate }}
     </p>
     <div class="actions">
       <a routerLink="/" class="btn btn-primary">
         <i class="icon">🏠</i>
-        العودة للرئيسية
+        {{ 'navigation.home' | translate }}
       </a>
       <button type="button" class="btn btn-secondary" (click)="goBack()">
         <i class="icon">←</i>
-        الرجوع للخلف
+        {{ 'common.back' | translate }}
       </button>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi, HttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -15,6 +17,7 @@ import { AccountRemoteDataSource } from './data/datasources/remote/account-remot
 import { AccountRepository } from './domain';
 import { AccountRepositoryImpl } from './data/repositories/account-repository.impl';
 import { authInterceptor } from './presentation/interceptors';
+import { createTranslateLoader } from './core/config/translation.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +27,15 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi(),withFetch(),withInterceptors([
       authInterceptor
     ])),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient],
+        },
+      })
+    ),
     provideApiConfig({
       baseUrl: `${environment.apiUrl}/${environment.apiVersion}`,
     }),

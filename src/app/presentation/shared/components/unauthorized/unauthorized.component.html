@@ -1,19 +1,18 @@
 <div class="unauthorized-container">
   <div class="unauthorized-content">
     <div class="error-code">403</div>
-    <h1 class="error-title">غير مصرح لك بالدخول</h1>
+    <h1 class="error-title">{{ 'errors.unauthorized' | translate }}</h1>
     <p class="error-description">
-      عذراً، ليس لديك الصلاحيات اللازمة للوصول إلى هذه الصفحة.
-      يرجى التواصل مع المسؤول إذا كنت تعتقد أن هذا خطأ.
+      {{ 'errors.unauthorizedDescription' | translate }}
     </p>
     <div class="actions">
       <a routerLink="/" class="btn btn-primary">
         <i class="icon">🏠</i>
-        العودة للرئيسية
+        {{ 'navigation.home' | translate }}
       </a>
       <button type="button" class="btn btn-secondary" (click)="goBack()">
         <i class="icon">←</i>
-        الرجوع للخلف
+        {{ 'common.back' | translate }}
       </button>
     </div>
   </div>
