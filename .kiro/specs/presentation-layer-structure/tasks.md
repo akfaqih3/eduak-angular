@@ -281,20 +281,30 @@
     - إضافة RoleGuard للمسارات الإدارية
     - _Requirements: 5.1_
 
-- [ ] 13. إعداد نظام الخدمات المشتركة
-  - [ ] 13.1 إنشاء ThemeService
+- [x] 13. إعداد نظام الخدمات المشتركة
+
+
+
+
+  - [x] 13.1 إنشاء ThemeService
+
+
     - إدارة السمة الحالية (Light/Dark)
     - حفظ التفضيلات في LocalStorage
     - تطبيق السمة على التطبيق
     - _Requirements: 8.1_
   
-  - [ ] 13.2 إنشاء NotificationService
+  - [x] 13.2 إنشاء NotificationService
+
+
     - عرض إشعارات Toast
     - دعم أنواع مختلفة (success, error, warning, info)
     - إدارة قائمة الإشعارات
     - _Requirements: 9.1_
   
-  - [ ] 13.3 إنشاء DialogService
+  - [x] 13.3 إنشاء DialogService
+
+
     - فتح نوافذ حوارية (Modals)
     - دعم التأكيد والإلغاء
     - إرجاع نتيجة الحوار
