@@ -1,0 +1,46 @@
+.course-list-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .search-filter-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+
+    app-input {
+      flex: 1;
+    }
+  }
+
+  .course-count {
+    margin-bottom: 1rem;
+    color: var(--text-secondary, #666);
+    font-size: 0.9rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    
+    p {
+      font-size: 1.2rem;
+      color: var(--text-secondary, #666);
+      margin-bottom: 1.5rem;
+    }
+  }
+}

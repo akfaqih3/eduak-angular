@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AccountDataSource } from '../account.datasource';
@@ -6,9 +5,6 @@ import { AccountModel } from '../../models/account.model';
 import { BaseApiService, SingleResponse } from '../../../core/api';
 import { API_RESOURCES, ACCOUNT_ENDPOINTS } from '../../../core/constants/api-endpoints';
 
-@Injectable({
-  providedIn: 'root',
-})
 export class AccountRemoteDataSource
   extends BaseApiService<AccountModel>
   implements AccountDataSource

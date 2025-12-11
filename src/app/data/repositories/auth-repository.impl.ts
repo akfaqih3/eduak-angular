@@ -1,4 +1,3 @@
-import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthRepository } from '../../domain/repositories/auth.repository';
@@ -7,12 +6,10 @@ import { Result } from '../../core/result/result';
 import { DomainError } from '../../core/errors/domain-error';
 import { ErrorMapper } from '../../core/result/error-mapper';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class AuthRepositoryImpl implements AuthRepository {
-    private dataSource = inject(AuthDataSource);
 
+export class AuthRepositoryImpl implements AuthRepository {
+
+    constructor(private dataSource: AuthDataSource) {}
     async login(email: string, password: string): Promise<Result<any, DomainError>> {
         try {
             const result = await firstValueFrom(this.dataSource.login(email, password));

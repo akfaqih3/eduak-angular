@@ -4,4 +4,5 @@
  */
 
 export * from './auth';
+export * from './courses';
 // Add more feature exports here as they are created

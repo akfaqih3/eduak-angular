@@ -1,4 +1,3 @@
-import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SubjectRepository } from '../../domain/repositories/subject.repository';
@@ -9,11 +8,9 @@ import { Result } from '../../core/result/result';
 import { DomainError } from '../../core/errors/domain-error';
 import { ErrorMapper } from '../../core/result/error-mapper';
 
-@Injectable({
-    providedIn: 'root',
-})
 export class SubjectRepositoryImpl implements SubjectRepository {
-    private dataSource = inject(SubjectDataSource);
+
+    constructor(private dataSource: SubjectDataSource) {}
 
     async getSubjects(): Promise<Result<SubjectEntity[], DomainError>> {
         try {

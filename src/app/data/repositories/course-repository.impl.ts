@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { ListResponse } from './../../core/api/models/api-response.model';
 import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CourseRepository } from '../../domain/repositories/course.repository';
@@ -8,17 +8,18 @@ import { CourseMapper } from '../models/course.model';
 import { Result } from '../../core/result/result';
 import { DomainError } from '../../core/errors/domain-error';
 import { ErrorMapper } from '../../core/result/error-mapper';
+import { response } from 'express';
 
-@Injectable({
-  providedIn: 'root',
-})
 export class CourseRepositoryImpl implements CourseRepository {
-  private dataSource = inject(CourseDataSource);
+
+  constructor(private dataSource: CourseDataSource) {}
 
   async getCourses(): Promise<Result<CourseEntity[], DomainError>> {
     try {
       const result = await firstValueFrom(
-        this.dataSource.getCourses().pipe(map((courses) => courses.map(CourseMapper.toDomain)))
+        this.dataSource.getCourses().pipe(
+          map(response => response.data),
+        )
       );
       return Result.success(result);
     } catch (error) {
@@ -29,7 +30,9 @@ export class CourseRepositoryImpl implements CourseRepository {
   async getCourse(id: number): Promise<Result<CourseEntity, DomainError>> {
     try {
       const result = await firstValueFrom(
-        this.dataSource.getCourse(id).pipe(map(CourseMapper.toDomain))
+        this.dataSource.getCourse(id).pipe(
+          map(response => response.data),
+        )
       );
       return Result.success(result);
     } catch (error) {

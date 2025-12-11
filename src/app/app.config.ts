@@ -14,10 +14,13 @@ import { AuthRemoteDataSource } from './data/datasources/remote/auth-remote.data
 import { AuthRepositoryImpl } from './data/repositories/auth-repository.impl';
 import { AccountDataSource } from './data/datasources/account.datasource';
 import { AccountRemoteDataSource } from './data/datasources/remote/account-remote.datasource';
-import { AccountRepository } from './domain';
+import { AccountRepository, CourseRepository } from './domain';
 import { AccountRepositoryImpl } from './data/repositories/account-repository.impl';
 import { authInterceptor } from './presentation/interceptors';
 import { createTranslateLoader } from './core/config/translation.config';
+import { CourseDataSource } from './data/datasources/course.datasource';
+import { CourseRemoteDataSource } from './data/datasources/remote/course-remote.datasource';
+import { CourseRepositoryImpl } from './data/repositories/course-repository.impl';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -40,8 +43,11 @@ export const appConfig: ApplicationConfig = {
       baseUrl: `${environment.apiUrl}/${environment.apiVersion}`,
     }),
     {provide: AuthDataSource, useClass: AuthRemoteDataSource},
-    {provide: AuthRepository, useClass: AuthRepositoryImpl},
+    {provide: AuthRepository, useClass: AuthRepositoryImpl,deps:[AuthDataSource]},
     {provide: AccountDataSource, useClass: AccountRemoteDataSource},
-    {provide: AccountRepository, useClass: AccountRepositoryImpl}
+    {provide: AccountRepository, useClass: AccountRepositoryImpl,deps:[AccountDataSource]},
+
+    {provide: CourseDataSource, useClass:CourseRemoteDataSource},
+    {provide: CourseRepository, useClass:CourseRepositoryImpl,deps:[CourseDataSource]}
   ]
 };

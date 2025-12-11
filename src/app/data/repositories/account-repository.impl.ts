@@ -1,4 +1,3 @@
-import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { AccountRepository } from '../../domain/repositories/account.repository';
@@ -9,12 +8,9 @@ import { Result } from '../../core/result/result';
 import { DomainError } from '../../core/errors/domain-error';
 import { ErrorMapper } from '../../core/result/error-mapper';
 
-@Injectable({
-  providedIn: 'root',
-})
 export class AccountRepositoryImpl implements AccountRepository {
-  private dataSource = inject(AccountDataSource);
 
+  constructor(private dataSource: AccountDataSource) {}
   async register(account: AccountEntity): Promise<Result<AccountEntity, DomainError>> {
     try {
       const model = AccountMapper.toModel(account);

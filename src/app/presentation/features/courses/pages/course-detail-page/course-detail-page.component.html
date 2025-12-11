@@ -1,0 +1,33 @@
+<div class="course-detail-page">
+  <div class="page-header">
+    <app-button
+      variant="secondary"
+      (click)="onBackToList()"
+    >
+      ← العودة للقائمة
+    </app-button>
+  </div>
+
+  @if (loading()) {
+    <app-loading-spinner />
+  } @else if (error()) {
+    <app-error-message
+      [message]="error()!"
+      (retry)="onRetry()"
+    />
+  } @else if (selectedCourse()) {
+    <app-course-detail
+      [course]="selectedCourse()!"
+    />
+  } @else {
+    <div class="not-found">
+      <p>لم يتم العثور على الكورس</p>
+      <app-button
+        variant="primary"
+        (click)="onBackToList()"
+      >
+        العودة للقائمة
+      </app-button>
+    </div>
+  }
+</div>

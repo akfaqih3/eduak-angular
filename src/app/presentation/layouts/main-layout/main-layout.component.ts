@@ -7,7 +7,7 @@ import { SidebarComponent, type SidebarItem } from '../../shared/components/navi
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent, SidebarComponent],
+  imports: [CommonModule, RouterModule, NavbarComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
@@ -23,41 +23,41 @@ export class MainLayoutComponent {
       icon: 'home'
     },
     {
-      label: 'المستخدمون',
-      route: '/users',
+      label: 'الكورسات',
+      route: '/courses',
       icon: 'people'
     }
   ];
 
-  // Sidebar menu items
-  sidebarItems: SidebarItem[] = [
-    {
-      label: 'لوحة التحكم',
-      route: '/dashboard',
-      icon: 'dashboard'
-    },
-    {
-      label: 'المستخدمون',
-      icon: 'people',
-      children: [
-        {
-          label: 'قائمة المستخدمين',
-          route: '/users',
-          icon: 'list'
-        },
-        {
-          label: 'إضافة مستخدم',
-          route: '/users/new',
-          icon: 'add'
-        }
-      ]
-    },
-    {
-      label: 'الإعدادات',
-      route: '/settings',
-      icon: 'settings'
-    }
-  ];
+  // // Sidebar menu items
+  // sidebarItems: SidebarItem[] = [
+  //   {
+  //     label: 'لوحة التحكم',
+  //     route: '/dashboard',
+  //     icon: 'dashboard'
+  //   },
+  //   {
+  //     label: 'المستخدمون',
+  //     icon: 'people',
+  //     children: [
+  //       {
+  //         label: 'قائمة المستخدمين',
+  //         route: '/users',
+  //         icon: 'list'
+  //       },
+  //       {
+  //         label: 'إضافة مستخدم',
+  //         route: '/users/new',
+  //         icon: 'add'
+  //       }
+  //     ]
+  //   },
+  //   {
+  //     label: 'الإعدادات',
+  //     route: '/settings',
+  //     icon: 'settings'
+  //   }
+  // ];
 
   toggleSidebar(): void {
     this.isSidebarOpen.update(value => !value);

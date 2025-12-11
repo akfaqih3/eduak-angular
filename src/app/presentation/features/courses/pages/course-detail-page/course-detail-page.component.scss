@@ -1,0 +1,20 @@
+.course-detail-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .not-found {
+    text-align: center;
+    padding: 4rem 2rem;
+    
+    p {
+      font-size: 1.2rem;
+      color: var(--text-secondary, #666);
+      margin-bottom: 1.5rem;
+    }
+  }
+}

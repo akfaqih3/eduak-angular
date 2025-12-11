@@ -1,0 +1,40 @@
+<div class="course-detail">
+  <app-card class="course-header">
+    <div class="course-image-large">
+      <img [src]="course.photoUrl" [alt]="course.title" />
+    </div>
+
+    <div class="course-header-content">
+      <h1 class="course-title">{{ course.title }}</h1>
+      <p class="course-subject">{{ course.displaySubject }}</p>
+    </div>
+  </app-card>
+
+  <app-card class="course-info">
+    <h2>نظرة عامة</h2>
+    <p class="course-overview">{{ course.overview }}</p>
+  </app-card>
+
+  <app-card class="course-stats">
+    <h2>إحصائيات الكورس</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-label">عدد الطلاب</span>
+        <span class="stat-value">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">التقييم</span>
+        <span class="stat-value">-</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">عدد الدروس</span>
+        <span class="stat-value">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">الحالة</span>
+        <span class="stat-value">نشط</span>
+      </div>
+    </div>
+    <p class="stats-note">ملاحظة: الإحصائيات ستكون متاحة عند ربط الكورس بالبيانات الفعلية</p>
+  </app-card>
+</div>

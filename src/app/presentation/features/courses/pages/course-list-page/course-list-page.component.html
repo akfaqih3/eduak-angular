@@ -1,0 +1,41 @@
+<div class="course-list-page">
+  <div class="page-header">
+    <h1 class="page-title">الكورسات</h1>
+  </div>
+
+  <div class="search-filter-section">
+    <app-input
+      type="text"
+      [placeholder]="'ابحث عن كورس...'"
+      (input)="onSearchChange($event)"
+      #searchInput
+    />
+
+    @if (searchQuery() || filterSubject()) {
+      <app-button
+        variant="secondary"
+        (clicked)="onClearFilters()"
+      >
+        مسح الفلاتر
+      </app-button>
+    }
+  </div>
+
+  <div class="course-count">
+    <p>عدد الكورسات: {{ totalCourses() }}</p>
+  </div>
+
+  @if (loading()) {
+    <app-loading-spinner />
+  } @else if (error()) {
+    <app-error-message
+      [message]="error()!"
+      (retry)="onRetry()"
+    />
+  } @else {
+    <app-course-list
+      [courses]="courses()"
+      (courseSelected)="onCourseSelected($event)"
+    />
+  }
+</div>

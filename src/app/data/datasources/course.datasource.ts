@@ -1,11 +1,8 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CourseModel } from '../models/course.model';
+import { ListResponse, SingleResponse } from '../../core';
 
-@Injectable({
-  providedIn: 'root',
-})
 export abstract class CourseDataSource {
-  abstract getCourses(): Observable<CourseModel[]>;
-  abstract getCourse(id: number): Observable<CourseModel>;
+  abstract getCourses(): Observable<ListResponse<CourseModel>>;
+  abstract getCourse(id: number): Observable<SingleResponse<CourseModel>>;
 }

@@ -1,0 +1,10 @@
+<div class="course-list">
+  @for (course of courses; track trackByCourseId($index, course)) {
+    <app-course-card
+      [course]="course"
+      (click)="onCourseClick(course.id)"
+      (edit)="onEditCourse(course.id)"
+      (delete)="onDeleteCourse(course.id)"
+    />
+  }
+</div>

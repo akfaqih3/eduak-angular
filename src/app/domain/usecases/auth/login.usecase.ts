@@ -7,7 +7,7 @@ import { DomainError } from '../../../core/errors/domain-error';
   providedIn: 'root',
 })
 export class LoginUseCase {
-  private repository = inject(AuthRepository);
+  constructor(private repository: AuthRepository) {}
 
   execute(email: string, password: string): Promise<Result<any, DomainError>> {
     return this.repository.login(email, password);

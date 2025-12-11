@@ -9,13 +9,7 @@
   />
 
   <div class="layout-container">
-    <!-- Sidebar -->
-    <app-sidebar
-      [items]="sidebarItems"
-      [isOpen]="isSidebarOpen()"
-      [collapsible]="true"
-      (close)="closeSidebar()"
-    />
+
 
     <!-- Main Content Area -->
     <main class="main-content" [class.sidebar-open]="isSidebarOpen()">

@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthDataSource } from '../auth.datasource';
@@ -10,9 +9,6 @@ import {
 } from '../../models/auth.model';
 import { API_RESOURCES, AUTH_ENDPOINTS } from '../../../core/constants/api-endpoints';
 
-@Injectable({
-  providedIn: 'root',
-})
 export class AuthRemoteDataSource extends BaseApiService<any> implements AuthDataSource {
   protected override resourcePath = API_RESOURCES.ACCOUNTS;
 

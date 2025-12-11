@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { StudentDataSource } from '../student.datasource';
@@ -7,9 +6,7 @@ import { BaseApiService } from '../../../core/api/services/base-api.service';
 import { ListResponse, SingleResponse } from '../../../core/api/models';
 import { API_RESOURCES, STUDENT_ENDPOINTS } from '../../../core/constants/api-endpoints';
 
-@Injectable({
-    providedIn: 'root'
-})
+
 export class StudentRemoteDataSource extends BaseApiService<any> implements StudentDataSource {
     protected resourcePath = API_RESOURCES.STUDENTS;
 

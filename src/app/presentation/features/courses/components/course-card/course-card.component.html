@@ -1,0 +1,12 @@
+<app-card class="course-card">
+  <div class="course-image">
+    <img [src]="course.photoUrl" [alt]="course.title" />
+  </div>
+
+  <div class="course-content">
+    <h3 class="course-title">{{ course.title }}</h3>
+    <p class="course-subject">{{ course.displaySubject }}</p>
+    <p class="course-overview">{{ course.overview }}</p>
+  </div>
+
+</app-card>

@@ -338,28 +338,67 @@
     - ترجمة النصوص في المكونات المشتركة
     - _Requirements: 10.1, 10.2_
 
-- [ ] 15. إنشاء مثال ميزة إدارة المستخدمين (Users Feature)
-  - [ ] 15.1 إنشاء هيكل ميزة Users
-    - إنشاء المجلدات والملفات الأساسية
-    - إنشاء users.routes.ts
+- [x] 15. إنشاء ميزة إدارة الكورسات للمعلم (Teacher Courses Feature)
+
+
+
+
+  - [x] 15.1 إنشاء هيكل ميزة Courses
+
+
+    - إنشاء المجلدات: pages, components, services, models, forms
+    - إنشاء courses.routes.ts للمسارات
+    - إنشاء ملفات index.ts للتصدير
     - _Requirements: 1.1, 1.2_
   
-  - [ ] 15.2 إنشاء UserStore و UserFacade
-    - إنشاء UserStore لإدارة حالة المستخدمين
-    - إنشاء UserFacade للتفاعل مع Use Cases
+  - [x] 15.2 إنشاء ViewModels و Mappers
+
+
+    - إنشاء CourseViewModel للعرض
+    - إنشاء CourseFormViewModel للنماذج
+    - إنشاء Mapper functions من Domain Entities
+    - _Requirements: 4.2_
+  
+  - [x] 15.3 إنشاء CourseStore و CourseFacade
+
+
+    - إنشاء CourseStore لإدارة حالة الكورسات باستخدام Signals
+    - إنشاء CourseFacade للتفاعل مع Use Cases (إنشاء، تعديل، حذف، عرض)
+    - إضافة computed signals (totalCourses, publishedCourses)
     - _Requirements: 3.1, 3.2, 4.1, 4.2_
   
-  - [ ] 15.3 إنشاء صفحة قائمة المستخدمين
-    - إنشاء UserListPageComponent (Smart)
-    - إنشاء UserListComponent (Presentational)
-    - إنشاء UserCardComponent لعرض بطاقة المستخدم
+  - [x] 15.4 إنشاء صفحة قائمة الكورسات
+
+
+    - إنشاء CourseListPageComponent (Smart Component)
+    - إنشاء CourseListComponent (Presentational)
+    - إنشاء CourseCardComponent لعرض بطاقة الكورس
+    - إضافة فلترة وبحث في الكورسات
     - _Requirements: 4.1, 4.2_
   
-  - [ ] 15.4 إنشاء صفحة تفاصيل المستخدم
-    - إنشاء UserDetailPageComponent
-    - إنشاء UserProfileComponent
-    - عرض معلومات المستخدم بشكل منظم
+  - [x] 15.5 إنشاء صفحة إضافة/تعديل الكورس
+
+
+    - إنشاء CourseFormPageComponent (Smart Component)
+    - إنشاء CourseFormComponent مع Reactive Forms
+    - إضافة التحقق من صحة البيانات (Validators)
+    - دعم رفع صورة الكورس
+    - _Requirements: 4.1, 4.2, 6.1, 6.2_
+  
+  - [x] 15.6 إنشاء صفحة تفاصيل الكورس
+
+
+    - إنشاء CourseDetailPageComponent
+    - إنشاء CourseDetailComponent لعرض معلومات الكورس
+    - عرض إحصائيات الكورس (عدد الطلاب، التقييمات، إلخ)
+    - إضافة أزرار التعديل والحذف
     - _Requirements: 4.1, 4.2_
+  
+  - [x] 15.7 إنشاء مكونات مساعدة
+
+
+    - إنشاء CourseActionsComponent لأزرار الإجراءات
+    - _Requirements: 2.1, 2.3_
 
 - [ ] 16. تحسينات الأداء
   - [ ] 16.1 تطبيق OnPush Change Detection

@@ -8,8 +8,8 @@ import { DomainError } from '../../../core/errors/domain-error';
   providedIn: 'root',
 })
 export class GetCoursesUseCase {
-  private repository = inject(CourseRepository);
 
+  constructor(private repository:CourseRepository){}
   execute(): Promise<Result<CourseEntity[], DomainError>> {
     return this.repository.getCourses();
   }

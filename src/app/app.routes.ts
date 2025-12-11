@@ -8,30 +8,37 @@ import { roleGuard } from './presentation/guards/role.guard';
 
 /**
  * Application Routes Configuration
- * 
+ *
  * This file defines the main routing structure of the application.
  * Routes are organized by layout and use lazy loading for features.
- * 
+ *
  * Structure:
  * - Main Layout: Protected routes for authenticated users
  * - Auth Layout: Public routes for authentication
  * - Error Pages: 404 and 403 pages
- * 
+ *
  * Guards Usage:
  * - authGuard: Protects routes that require authentication
  *   Example: canActivate: [authGuard]
- * 
+ *
  * - roleGuard: Protects routes based on user roles
  *   Example: canActivate: [authGuard, roleGuard], data: { roles: ['teacher'] }
  *   Note: authGuard should always be used before roleGuard
- * 
+ *
  * Lazy Loading:
  * All feature modules are lazy loaded to improve initial load time.
  * Use loadChildren for feature routes and loadComponent for standalone components.
  */
 export const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'courses',
+    pathMatch: 'full'
+  },
+
   // Main application routes with MainLayout
- 
+
   // Authentication routes with AuthLayout
   {
     path: 'auth',
@@ -39,7 +46,12 @@ export const routes: Routes = [
     loadChildren: () => import('./presentation/features/auth/auth.routes'),
     title: 'المصادقة'
   },
-
+  {
+    path: 'courses',
+    component: MainLayoutComponent,
+    loadChildren: () => import('./presentation/features/courses/courses.routes'),
+    title: 'المساقات',
+  },
   // Error pages (standalone, no layout)
   {
     path: 'unauthorized',
