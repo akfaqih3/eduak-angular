@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../../services/language.service';
 
@@ -12,6 +12,7 @@ import { LanguageService } from '../../../services/language.service';
   imports: [CommonModule],
   templateUrl: './language-switcher.component.html',
   styleUrl: './language-switcher.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LanguageSwitcherComponent {
   protected readonly languageService = inject(LanguageService);

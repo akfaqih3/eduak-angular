@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CourseViewModel } from '../../models/course.view-model';
 import { CardComponent } from '../../../../shared/components/ui/card/card.component';
 import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
@@ -21,6 +21,7 @@ import { ClickOutsideDirective } from "../../../../directives";
   imports: [CardComponent],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseCardComponent {
   @Input({ required: true }) course!: CourseViewModel;

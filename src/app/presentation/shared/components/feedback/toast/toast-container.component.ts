@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToastComponent, Toast, ToastPosition } from './toast.component';
 
@@ -6,6 +6,7 @@ import { ToastComponent, Toast, ToastPosition } from './toast.component';
   selector: 'app-toast-container',
   standalone: true,
   imports: [CommonModule, ToastComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [class]="'toast-container toast-container-' + position()">
       @for (toast of toasts(); track toast.id) {

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CourseViewModel } from '../../models/course.view-model';
 import { CardComponent } from '../../../../shared/components/ui/card/card.component';
 
@@ -20,6 +20,7 @@ import { CardComponent } from '../../../../shared/components/ui/card/card.compon
   imports: [CardComponent],
   templateUrl: './course-detail.component.html',
   styleUrl: './course-detail.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseDetailComponent {
   @Input({ required: true }) course!: CourseViewModel;

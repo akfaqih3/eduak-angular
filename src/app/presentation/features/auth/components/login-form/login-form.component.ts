@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginViewModel } from '../../models/login.view-model';
 import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
@@ -26,7 +26,8 @@ import { InputComponent } from '../../../../shared/components/ui/input/input.com
     InputComponent
   ],
   templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.scss'
+  styleUrl: './login-form.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent {
   // Inputs

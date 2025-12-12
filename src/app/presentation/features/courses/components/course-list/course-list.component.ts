@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CourseViewModel } from '../../models/course.view-model';
 import { CourseCardComponent } from '../course-card/course-card.component';
 
@@ -19,6 +19,7 @@ import { CourseCardComponent } from '../course-card/course-card.component';
   imports: [CourseCardComponent],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseListComponent {
   @Input({ required: true }) courses: CourseViewModel[] = [];

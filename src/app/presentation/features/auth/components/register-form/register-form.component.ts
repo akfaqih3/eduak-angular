@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegisterViewModel } from '../../models/register.view-model';
 import { RoleEnum } from '../../../../../domain/entities/account.entity';
@@ -28,7 +28,8 @@ import { InputComponent } from '../../../../shared/components/ui/input/input.com
     InputComponent
   ],
   templateUrl: './register-form.component.html',
-  styleUrl: './register-form.component.scss'
+  styleUrl: './register-form.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterFormComponent {
   // Inputs

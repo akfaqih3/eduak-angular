@@ -400,13 +400,23 @@
     - إنشاء CourseActionsComponent لأزرار الإجراءات
     - _Requirements: 2.1, 2.3_
 
-- [ ] 16. تحسينات الأداء
-  - [ ] 16.1 تطبيق OnPush Change Detection
+- [x] 16. تحسينات الأداء
+
+
+
+
+
+  - [x] 16.1 تطبيق OnPush Change Detection
+
+
+
     - تطبيق OnPush على المكونات Presentational
     - التأكد من استخدام Signals بشكل صحيح
     - _Requirements: 3.3_
   
-  - [ ] 16.2 تطبيق TrackBy Functions
+  - [x] 16.2 تطبيق TrackBy Functions
+
+
     - إضافة trackBy للقوائم الديناميكية
     - تحسين أداء العرض
     - _Requirements: 3.3_

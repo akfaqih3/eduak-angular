@@ -102,7 +102,6 @@ export class CourseListPageComponent implements OnInit {
   onClearFilters(): void {
     this.searchQuery.set('');
     this.courseFacade.clearFilters();
-    this.searchInput.value = '';
   }
 
   /**
